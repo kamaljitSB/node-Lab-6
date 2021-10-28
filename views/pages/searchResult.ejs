@@ -9,7 +9,14 @@
 </head>
 
 <body>
-  <!-- Your Code Goes Here -->
+  <% if (description.includes(movieName)){%>
+  <h1><%= description[0]%></h1>
+    <p><%= description[1]%></p>
+    <a href="http://localhost:3000/">Home page</a>
+    <%} else{ %>
+      <p>Movie not Found </p>
+      <a href="http://localhost:3000/">Home page</a>
+      <% }%>
 
 </body>
 

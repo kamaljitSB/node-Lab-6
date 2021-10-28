@@ -6,7 +6,7 @@
 */
 const { render } = require("ejs");
 const express = require("express");
-const fs = require("fs");
+const fs = require("fs").promises;
 
 let app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -41,9 +41,16 @@ app.get("/myListQueryString", (req, res) => {
   res.render("pages/index", { movie_names: movie_list });
 });
 
-app.get("/search/:movieName", (req, res) => {
+app.get("/search/:movieName", async (req, res) => {
   // Add your implementation here
-  let movie;
+  let movieName = req.params.movieName;
+  const content = await fs.readFile("movieDescriptions.txt");
+  let data = content.toString();
+  let new_content = data.split(":");
+  res.render("pages/searchResult", {
+    description: new_content,
+    movieName: movieName,
+  });
 });
 
 app.listen(3000, () => {
