@@ -1,8 +1,7 @@
 /*
  Authors:
- Your name and student #:
- Your Partner's Name and student #:
- (Make sure you also specify on the Google Doc)
+ Kamaljit Singh Bhullar -- A01251149
+ Alyssa Champion -- A01244244
 */
 const { render } = require("ejs");
 const express = require("express");
